@@ -1,0 +1,104 @@
+[
+  {
+    "id": 1,
+    "name": "Texas Pete Original",
+    "img_url": "https://hot-sauce-images.codinggarden.now.sh/texas-pete.png",
+    "search_string": "Texas Pete Original Texas Pete",
+    "maker": "Texas Pete",
+    "origin": "Winston-Salem, NC",
+    "website": "https://www.texaspete.com/",
+    "scovilles": 747
+  },
+  {
+    "id": 2,
+    "name": "Original",
+    "img_url": "https://hot-sauce-images.codinggarden.now.sh/cholula.png",
+    "search_string": "Original Cholula",
+    "maker": "Cholula",
+    "origin": "Jalisco, Mexico",
+    "website": "http://www.cholula.com/",
+    "scovilles": 3600
+  },
+  {
+    "id": 3,
+    "name": "Caribbean",
+    "img_url": "https://hot-sauce-images.codinggarden.now.sh/yucateco-carribean.png",
+    "search_string": "Caribbean El Yucateco",
+    "maker": "El Yucateco",
+    "origin": "Yucatán, México",
+    "website": "http://www.elyucateco.com",
+    "scovilles": 5400
+  },
+  {
+    "id": 4,
+    "name": "Hot Pepper Sauce",
+    "img_url": "https://hot-sauce-images.codinggarden.now.sh/lotties-hot-pepper-sauce.png",
+    "search_string": "Hot Pepper Sauce Lottie's",
+    "maker": "Lottie's",
+    "origin": "Bridgetown, Barbados",
+    "website": "https://www.mohotta.com",
+    "scovilles": 5400
+  },
+  {
+    "id": 5,
+    "name": "Pain is Good Louisiana Style",
+    "img_url": "https://hot-sauce-images.codinggarden.now.sh/pain-is-good.png",
+    "small_img_url": "",
+    "med_img_url": "",
+    "search_string": "Pain is Good Louisiana Style Spicin Foods (FKA Original Juan)",
+    "maker": "Spicin Foods (FKA Original Juan)",
+    "origin": "Kansas City, KS",
+    "website": "https://www.spicinfoods.com/",
+    "scovilles": 13000
+  },
+  {
+    "id": 6,
+    "name": "Pain 100% ",
+    "img_url": "https://hot-sauce-images.codinggarden.now.sh/pain-100.png",
+    "search_string": "Pain 100%  Spicin Foods (FKA Original Juan)",
+    "maker": "Spicin Foods (FKA Original Juan)",
+    "origin": "Kansas City, KS",
+    "website": "https://www.spicinfoods.com/",
+    "scovilles": 40600
+  },
+  {
+    "id": 7,
+    "name": "Original Death",
+    "img_url": "https://hot-sauce-images.codinggarden.now.sh/blairs-original-death.png",
+    "search_string": "Original Death Blair's",
+    "maker": "Blair's",
+    "origin": "Highlands, NJ",
+    "website": "http://extremefood.com/",
+    "scovilles": 35000
+  },
+  {
+    "id": 8,
+    "name": "Temporary Insanity Sauce",
+    "img_url": "https://hot-sauce-images.codinggarden.now.sh/daves-temporary-insanity.png",
+    "search_string": "Temporary Insanity Sauce Dave's Gourmet Fiery Foods",
+    "maker": "Dave's Gourmet Fiery Foods",
+    "origin": "College Park, MD",
+    "website": "http://www.davesgourmetfieryfoods.com/",
+    "scovilles": 57000
+  },
+  {
+    "id": 9,
+    "name": "Insanity Sauce",
+    "img_url": "https://hot-sauce-images.codinggarden.now.sh/daves-insanity.png",
+    "search_string": "Insanity Sauce Dave's Gourmet Fiery Foods",
+    "maker": "Dave's Gourmet Fiery Foods",
+    "origin": "College Park, MD",
+    "website": "http://www.davesgourmetfieryfoods.com/",
+    "scovilles": 180000
+  },
+  {
+    "id": 10,
+    "name": "Mad Dog 357",
+    "img_url": "https://hot-sauce-images.codinggarden.now.sh/mad-dog-357.png",
+    "search_string": "Mad Dog 357 Mad Dog 357",
+    "maker": "Mad Dog 357",
+    "origin": "Sudbury, MA",
+    "website": "https://www.maddog357.com/",
+    "scovilles": 357000
+  }
+]
