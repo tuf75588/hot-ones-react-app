@@ -11,7 +11,6 @@ for (let i = 1; i <= 11; i += 1) {
   const image = require(`../images/${i.toString().padStart(2, '0')}.svg`);
   levels.push(image);
 }
-levels.push(fire);
 
 const styles = {
   meter: {
@@ -34,43 +33,19 @@ const styles = {
 // level 5 ===  30001 to 40000
 // level 6 40001 to 71000
 // level 7 70001 to 135.599
-// level 8 135,600 to 625,000
-// level 8 625,001 to 1000000
-// level 9 100000+
+// level 8 135600 to 356999
+// level 9 357000 to 625000
+// level 10 625000 to 1000000
+// level 11 1000000+
 
-const ranges = {
-  0: {
-    min: 0,
-    max: 2200,
-  },
-  1: {
-    min: 2201,
-    max: 4000,
-  },
-  2: {
-    min: 4001,
-    max: 9000,
-  },
-  3: {
-    min: 9001,
-    max: 30000,
-  },
-  4: {
-    min: 30001,
-    max: 40000,
-  },
-  5: {
-    min: 40001,
-    max: 71000,
-  },
-  6: {
-    min: 71001,
-    max: 135599,
-  },
-};
+const mins = [0, 2201, 4001, 9001, 30001, 40001, 71001, 135600, 357000, 625001, 1000001];
 
-function getLevel(scoville) {
-  return levels.filter((level, i) => level === scoville);
+function getLevels(scovilles) {
+  const allLevels = levels.filter((level, i) => scovilles >= mins[i]);
+  if (scovilles >= 1000001) {
+    allLevels.push(fire);
+  }
+  return allLevels;
 }
 
 function ScovilleMeter({ classes, scovilles }) {
@@ -78,8 +53,8 @@ function ScovilleMeter({ classes, scovilles }) {
     <div className={classes.meter}>
       {scovilles}
       <img src={Pepper} alt="svg for logo" className={classes.level} />
-      {levels.map((level, i) => (
-        <img src={level} alt="level svg" key={i} className={classes.level} />
+      {getLevels(scovilles).map(level => (
+        <img src={level} alt="level svg" key={level} className={classes.level} />
       ))}
     </div>
   );
