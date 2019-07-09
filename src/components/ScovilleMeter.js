@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import injectSheet from 'react-jss';
 import PropTypes from 'prop-types';
 import Pepper from '../images/pepper.svg';
@@ -13,13 +13,26 @@ for (let i = 1; i <= 11; i += 1) {
 }
 
 const styles = {
+  blink_me: {
+    animation: 'blinker 1s cubic-bezier(0, 2.25, 0, 2.25) infinite',
+  },
+  container: {
+    display: 'flex',
+    width: '40%',
+    flexDirection: 'column',
+    height: '200px',
+  },
   meter: {
     position: 'relative',
-    width: '30%',
+    width: '100%',
   },
   level: {
     position: 'absolute',
     width: '100%',
+    height: 'auto',
+  },
+  text: {
+    color: '#fff',
   },
 };
 // min scoville will be 450
@@ -49,13 +62,39 @@ function getLevels(scovilles) {
 }
 
 function ScovilleMeter({ classes, scovilles }) {
+  const allLevels = getLevels(scovilles);
+  const [displayedLevels, setDisplayedLevels] = useState([]);
+
+  useEffect(() => {
+    if (displayedLevels.length !== allLevels.length) {
+      // do some stuff.
+      setTimeout(() => {
+        // do some more stuff.
+        const levelsToShow = allLevels.slice(0, displayedLevels.length + 1);
+        setDisplayedLevels(levelsToShow);
+      }, 100);
+    }
+  });
   return (
-    <div className={classes.meter}>
-      {scovilles}
-      <img src={Pepper} alt="svg for logo" className={classes.level} />
-      {getLevels(scovilles).map(level => (
-        <img src={level} alt="level svg" key={level} className={classes.level} />
-      ))}
+    <div className={classes.container}>
+      <div className={classes.meter}>
+        <img src={Pepper} alt="svg for logo" className={classes.level} />
+        {displayedLevels.map((level, i) => (i === 11 ? (
+          <img
+            src={level}
+            alt="level svg"
+            key={level}
+            className={`${classes.level} ${classes.blink_me}`}
+          />
+        ) : (
+          <img src={level} alt="level svg" key={level} className={classes.level} />
+        )))}
+      </div>
+      <h3 className={classes.text}>
+        {scovilles}
+        {' '}
+scovilles
+      </h3>
     </div>
   );
 }
@@ -63,6 +102,7 @@ function ScovilleMeter({ classes, scovilles }) {
 ScovilleMeter.propTypes = {
   classes: PropTypes.shape({}).isRequired,
   scovilles: PropTypes.number.isRequired,
+  height: PropTypes.string.isRequired,
 };
 
 export default injectSheet(styles)(ScovilleMeter);
