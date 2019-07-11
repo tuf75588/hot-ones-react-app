@@ -1,31 +1,42 @@
 import React, { useState } from 'react';
 import injectSheet from 'react-jss';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const styles = {
-  container: {
+  sideBar: {
     width: '250px',
+    height: '100%',
+    overflowY: 'scroll',
   },
   seasonButton: {
     color: 'yellow',
-    outline: '2px solid red',
-    borderRadius: '3px',
+    border: '2px solid red',
+    borderRadius: '5px',
     minWidth: '100px',
     fontSize: '2em',
     margin: '1em',
     padding: '0.25em',
     textAlign: 'center',
+    cursor: 'pointer',
+    fontFamily: "'Allerta Stencil', sans-serif",
+    textTransform: 'uppercase',
+    '&:hover': {
+      backgroundColor: 'yellow',
+      color: '#000',
+    },
   },
 };
 function SeasonSelector({ classes, seasons }) {
   return (
-    <div className={classes.container}>
-      season list
+    <div className={classes.sideBar}>
       {seasons
         && seasons.map((_, i) => (
           <div className={classes.seasonButton} key={i}>
-            Season
-            {i + 1}
+            <Link to={`/seasons/${i + 1}`}>
+              Season
+              {i + 1}
+            </Link>
           </div>
         ))}
     </div>
