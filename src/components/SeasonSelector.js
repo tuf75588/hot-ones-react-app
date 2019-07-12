@@ -5,16 +5,15 @@ import { Link } from 'react-router-dom';
 
 const styles = {
   sideBar: {
-    width: '250px',
+    width: '10%',
     height: '100%',
-    overflowY: 'scroll',
   },
   seasonButton: {
     color: 'yellow',
     border: '2px solid red',
     borderRadius: '5px',
     minWidth: '100px',
-    fontSize: '2em',
+    fontSize: '1.5em',
     margin: '1em',
     padding: '0.25em',
     textAlign: 'center',
