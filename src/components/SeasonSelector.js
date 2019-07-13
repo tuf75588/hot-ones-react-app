@@ -1,49 +1,80 @@
-import React, { useState } from 'react';
+import React from 'react';
 import injectSheet from 'react-jss';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+
+const seasons = [];
+for (let i = 1; i <= 9; i += 1) {
+  seasons.push({
+    file: i,
+    name: `Season ${i}`,
+  });
+}
 
 const styles = {
   sideBar: {
-    width: '10%',
     height: '100%',
+    minWidth: '300px',
+    overflowY: 'auto',
   },
   seasonButton: {
-    color: 'yellow',
-    border: '2px solid red',
-    borderRadius: '5px',
     minWidth: '100px',
-    fontSize: '1.5em',
+    fontSize: '2em',
     margin: '1em',
     padding: '0.25em',
+    color: 'yellow',
+    outline: '2px solid red',
     textAlign: 'center',
     cursor: 'pointer',
     fontFamily: "'Allerta Stencil', sans-serif",
     textTransform: 'uppercase',
     '&:hover': {
-      backgroundColor: 'yellow',
-      color: '#000',
+      background: 'yellow',
+      color: 'black',
+    },
+  },
+  selected: {
+    background: 'yellow',
+    color: 'black',
+  },
+  signature: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    flexDirection: 'column',
+
+    borderRadius: '4px',
+    height: '300px',
+    paddingLeft: '10px',
+    '& span': {
+      color: '#fff',
+      border: '0.5px solid rgba(255,255,255,0.3)',
+      textAlign: 'center',
     },
   },
 };
-function SeasonSelector({ classes, seasons }) {
+
+const SeasonSelector = ({ classes, history, match }) => {
+  const { season } = match.params;
   return (
     <div className={classes.sideBar}>
-      {seasons
-        && seasons.map((_, i) => (
-          <div className={classes.seasonButton} key={i}>
-            <Link to={`/seasons/${i + 1}`}>
-              Season
-              {i + 1}
-            </Link>
-          </div>
-        ))}
+      {seasons.map(({ file, name }, i) => (
+        <div
+          key={i}
+          className={`${classes.seasonButton} ${season == file ? classes.selected : ''}`}
+          onClick={() => history.push(`/seasons/${file}`)}
+        >
+          {name}
+        </div>
+      ))}
+      <div className={classes.signature}>
+        <span>Made with 💖 by Andrew (atd285) </span>
+      </div>
     </div>
   );
-}
+};
 
 SeasonSelector.propTypes = {
   classes: PropTypes.shape({}).isRequired,
-  seasons: PropTypes.shape([]).isRequired,
 };
-export default injectSheet(styles)(SeasonSelector);
+
+export default withRouter(injectSheet(styles)(SeasonSelector));
