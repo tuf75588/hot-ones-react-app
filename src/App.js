@@ -21,11 +21,6 @@ function App() {
         <Switch>
           <Route exact path="/seasons/:season" component={SeasonViewer} />
           <Route path="/seasons/:season/sauces/:sauce_id" component={SeasonViewer} />
-          <Route
-            render={() => (
-              <h1 style={{ color: '#fff' }}>The page you're looking for doesn't exist</h1>
-            )}
-          />
         </Switch>
       </div>
     </Router>
