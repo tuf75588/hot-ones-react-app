@@ -12,10 +12,10 @@ const styles = {
     height: '100%',
     display: 'flex',
     color: 'yellow',
-    flexDirection: 'column',
+    flexDirection: 'column'
   },
   selectedSauce: {
-    minHeight: '60%',
+    minHeight: '60%'
   },
   bottles: {
     display: 'flex',
@@ -29,13 +29,13 @@ const styles = {
       cursor: 'pointer',
       '&:hover': {
         background: 'yellow',
-        boxShadow: '0 0 8px 8px black inset',
-      },
-    },
+        boxShadow: '0 0 8px 8px black inset'
+      }
+    }
   },
   selected: {
     background: 'red !important',
-    boxShadow: '0 0 8px 8px black inset !important',
+    boxShadow: '0 0 8px 8px black inset !important'
   },
   messageText: {
     width: '100%',
@@ -46,8 +46,9 @@ const styles = {
     textTransform: 'uppercase',
     fontSize: '4em',
     fontFamily: "'Allerta Stencil', sans-serif",
-    textShadow: '0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00',
-  },
+    textShadow:
+      '0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00'
+  }
 };
 
 const SeasonViewer = ({ classes, match, history }) => {
@@ -63,7 +64,7 @@ const SeasonViewer = ({ classes, match, history }) => {
     const { sauce_id } = match.params;
     if (sauce_id) {
       // eslint-disable-next-line
-      setSelectedSauce(sauces.find(sauce => sauce.id == sauce_id));
+      setSelectedSauce(sauces.find((sauce) => sauce.id == sauce_id));
     }
   }, [season, match.params]);
   return (
@@ -73,11 +74,15 @@ const SeasonViewer = ({ classes, match, history }) => {
           <Route
             exact
             path="/seasons/:season"
-            component={() => <h3 className={classes.messageText}>Select a sauce</h3>}
+            component={() => (
+              <h3 className={classes.messageText}>Select a sauce</h3>
+            )}
           />
           <Route
             path="*/sauces/:sauce_id"
-            component={props => <SauceViewer {...props} sauce={selectedSauce || null} />}
+            component={(props) => (
+              <SauceViewer {...props} sauce={selectedSauce || null} />
+            )}
           />
         </Switch>
       </div>
@@ -89,13 +94,15 @@ const SeasonViewer = ({ classes, match, history }) => {
         transitionEnterTimeout={800}
         transitionLeaveTimeout={800}
       >
-        {sauces.map(sauce => (
+        {sauces.map((sauce) => (
           <img
             key={sauce.id}
             src={sauce.img_url}
             alt={sauce.name}
             className={sauce.id == sauce_id ? classes.selected : ''}
-            onClick={() => history.push(`/seasons/${season}/sauces/${sauce.id}`)}
+            onClick={() =>
+              history.push(`/seasons/${season}/sauces/${sauce.id}`)
+            }
           />
         ))}
       </ReactCSSTransitionGroup>
@@ -106,7 +113,7 @@ const SeasonViewer = ({ classes, match, history }) => {
 SeasonViewer.propTypes = {
   classes: PropTypes.shape({}).isRequired,
   history: PropTypes.shape({}).isRequired,
-  match: PropTypes.shape({}).isRequired,
+  match: PropTypes.shape({}).isRequired
 };
 
 export default withRouter(injectSheet(styles)(SeasonViewer));
