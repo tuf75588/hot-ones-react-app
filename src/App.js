@@ -11,7 +11,7 @@ function App() {
         style={{
           display: 'flex',
           width: '100%',
-          height: '100%',
+          height: '100%'
         }}
       >
         <Switch>
@@ -20,7 +20,10 @@ function App() {
         </Switch>
         <Switch>
           <Route exact path="/seasons/:season" component={SeasonViewer} />
-          <Route path="/seasons/:season/sauces/:sauce_id" component={SeasonViewer} />
+          <Route
+            path="/seasons/:season/sauces/:sauce_id"
+            component={SeasonViewer}
+          />
         </Switch>
       </div>
     </Router>
